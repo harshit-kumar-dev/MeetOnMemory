@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Navbar from "../components/Navbar.jsx";
 import SearchBar from "../components/ai-search/SearchBar.jsx";
@@ -13,6 +13,16 @@ import { apiClient } from "../services";
 // Modal Component for showing full details
 const ResultModal = ({ result, onClose }) => {
   const { t } = useTranslation();
+
+  useEffect(() => {
+    if (!result) return;
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [result, onClose]);
+
   if (!result) return null;
 
   return (
@@ -24,8 +34,11 @@ const ResultModal = ({ result, onClose }) => {
           </h2>
           <button
             onClick={onClose}
+            aria-label="Close"
             className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-2xl"
-          ></button>
+          >
+            ✕
+          </button>
         </div>
 
         <div className="space-y-4">
