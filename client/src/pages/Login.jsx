@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import AppContent from "../context/AppContent";
 import { toast } from "react-toastify";
 import { assets } from "../assets/assets";
+import BrandLogo from "../components/branding/BrandLogo.jsx";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
 import { authApi, csrfService } from "../services";
 import { SignIn, SignUp } from "@clerk/clerk-react";
@@ -117,10 +118,8 @@ const Login = () => {
       </div>
 
       {/* Logo */}
-      <img
+      <BrandLogo
         onClick={() => navigate("/")}
-        src={assets.logo}
-        alt="Logo"
         className="absolute left-5 sm:left-20 top-5 w-28 sm:w-32 cursor-pointer transition-all duration-300 hover:scale-105 hover:opacity-90 z-20"
       />
 

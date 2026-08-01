@@ -13,6 +13,7 @@ import useTheme from "../context/useTheme.jsx";
 import { toast } from "react-toastify";
 import { notificationApi, authApi, organizationApi } from "../services";
 import { UserButton } from "@clerk/clerk-react";
+import BrandLogo from "./branding/BrandLogo.jsx";
 import { io } from "socket.io-client";
 
 const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
@@ -446,42 +447,7 @@ const Navbar = () => {
             tabIndex={0}
             onKeyDown={(e) => e.key === "Enter" && navigate("/")}
           >
-            <div className="flex items-center justify-center shrink-0">
-              {/* Clean Extra Large Native Option A Infinity Symbol with scale only */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 100 100"
-                className="relative w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 transition-transform duration-300 group-hover:scale-105"
-              >
-                <defs>
-                  <linearGradient
-                    id="navInfinityGrad"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="100%"
-                  >
-                    <stop offset="0%" stop-color="#2563eb" />
-                    <stop offset="100%" stop-color="#7c3aed" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M25,50 C25,35 38,30 50,50 C62,70 75,65 75,50 C75,35 62,30 50,50 C38,70 25,65 25,50 Z"
-                  fill="none"
-                  stroke="url(#navInfinityGrad)"
-                  stroke-width="11"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <circle cx="25" cy="50" r="6.5" fill="#2563eb" />
-                <circle cx="75" cy="50" r="6.5" fill="#7c3aed" />
-              </svg>
-            </div>
-            {/* Clean, Consistent Text Layout (Hover effects removed) */}
-            <span className="font-bold text-lg sm:text-2xl text-gray-900 dark:text-gray-100 tracking-tight shrink-0">
-              MeetOn
-              <span className="text-blue-600 dark:text-blue-400">Memory</span>
-            </span>
+            <BrandLogo className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 transition-transform duration-300 group-hover:scale-105" />
           </div>
           {/* Desktop Navigation */}
           {userData ? (

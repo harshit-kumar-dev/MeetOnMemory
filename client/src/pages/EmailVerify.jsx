@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from "react";
-import { assets } from "../assets/assets";
 import AppContent from "../context/AppContent";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { authApi } from "../services";
+import BrandLogo from "../components/branding/BrandLogo.jsx";
 
 const EmailVerify = () => {
   const { getUserData, isLoggedin, userData } = useContext(AppContent);
@@ -59,10 +59,8 @@ const EmailVerify = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-linear-to-br from-blue-200 to-purple-400">
-      <img
+      <BrandLogo
         onClick={() => navigate("/")}
-        src={assets.logo}
-        alt=""
         className="absolute left-5 sm:left-20 top-5 w-28 sm:w-32 cursor-pointer"
       />
 

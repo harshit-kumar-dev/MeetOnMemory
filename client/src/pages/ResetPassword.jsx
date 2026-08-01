@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { assets } from "../assets/assets";
+import BrandLogo from "../components/branding/BrandLogo.jsx";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { authApi } from "../services";
@@ -89,10 +90,8 @@ const ResetPassword = () => {
   return (
     <div className="relative flex items-center justify-center min-h-screen bg-linear-to-br from-blue-200 to-purple-400 overflow-hidden px-4 sm:px-6">
       {/* Logo */}
-      <img
+      <BrandLogo
         onClick={() => navigate("/")}
-        src={assets.logo}
-        alt="Logo"
         className="absolute left-5 sm:left-20 top-5 w-28 sm:w-32 cursor-pointer transition-all duration-300 hover:scale-105 hover:opacity-90 z-20"
       />
 
